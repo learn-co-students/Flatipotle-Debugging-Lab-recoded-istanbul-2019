@@ -4,9 +4,13 @@ import Form from './Form'
 import Order from './Order'
 
 class App extends Component {
-  state: {
-    orders: []
+  constructor(props){
+    super(props)
+    this.state={
+      orders: []
+    }
   }
+  
 
   addOrder = (order) => {
     this.setState({
@@ -16,7 +20,7 @@ class App extends Component {
 
   render() {
     const orders = this.state.orders.map( (order, idx) => {
-      <Order key={idx} {...order} />
+      return <Order key={idx} {...order} />
     })
 
     return (
