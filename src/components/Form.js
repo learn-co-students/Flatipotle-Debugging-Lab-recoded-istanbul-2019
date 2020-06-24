@@ -48,7 +48,7 @@ class Form extends Component {
         <h1 className="ui block header">Order Form</h1>
         <form className="ui form" id="order-form" onSubmit={ this.handleSubmit }>
           <ProteinForm
-            protein={ this.state.protein }
+            protein={this.state.protein}
             handleOnChange={ this.handleChange }
           />
 
