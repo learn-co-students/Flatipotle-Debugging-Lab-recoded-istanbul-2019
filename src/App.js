@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import './App.css'
-import Form from './Form'
-import Order from './Order'
+import Form from './components/Form'
+import Order from './components/Order'
 
 class App extends Component {
-  state: {
-    orders: []
-  }
+  state = {
+    orders: [],
+  };
 
   addOrder = (order) => {
     this.setState({
       orders: this.state.orders.concat(order)
     })
-  }
+  };
 
   render() {
     const orders = this.state.orders.map( (order, idx) => {
-      <Order key={idx} {...order} />
-    })
+      return <Order key={idx} {...order} />
+    });
 
     return (
       <div className="App">
