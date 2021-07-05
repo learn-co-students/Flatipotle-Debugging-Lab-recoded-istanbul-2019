@@ -16,17 +16,17 @@ class Form extends Component {
     ...DEFAULT_STATE
   }
 
-  handleSubmit() {
+  handleSubmit = (event) => {
     event.preventDefault()
     document.getElementById("order-form").reset()
     this.props.addOrder(this.state)
-
     this.setState({
       ...DEFAULT_STATE
     })
+
   }
 
-  handleChange() {
+  handleChange = (event) => {
     const itemType = event.target.name
     const item = event.target.value
 
@@ -34,7 +34,7 @@ class Form extends Component {
       this.setState({
         [itemType]: this.state[`${itemType}`].concat(item)
       })
-    :
+      :
       this.setState({
         [itemType]: this.state[`${itemType}`].filter(
           ingr => ingr !== item
@@ -43,28 +43,29 @@ class Form extends Component {
   }
 
   render() {
-    return(
+    console.log(this.state)
+    return (
       <div className="ui raised container segment">
         <h1 className="ui block header">Order Form</h1>
-        <form className="ui form" id="order-form" onSubmit={ this.handleSubmit }>
+        <form className="ui form" id="order-form" onSubmit={this.handleSubmit}>
           <ProteinForm
-            protein={ this.state.protein }
-            handleOnChange={ this.handleChange }
+            protein={this.state.protein}
+            handleOnChange={this.handleChange}
           />
 
           <FillingForm
-            fillings={ this.state.fillings }
-            handleOnChange={ this.handleChange }
+            fillings={this.state.fillings}
+            handleOnChange={this.handleChange}
           />
 
           <ToppingForm
-            toppings={ this.state.toppings }
-            handleOnChange={ this.handleChange }
+            toppings={this.state.toppings}
+            handleOnChange={this.handleChange}
           />
 
           <SideForm
-            sides={ this.state.sides }
-            handleOnChange={ this.handleChange }
+            sides={this.state.sides}
+            handleOnChange={this.handleChange}
           />
 
           <br />
