@@ -6,7 +6,7 @@ import Order from './Order'
 class App extends Component {
   state: {
     orders: []
-  }
+  }}
 
   addOrder = (order) => {
     this.setState({
