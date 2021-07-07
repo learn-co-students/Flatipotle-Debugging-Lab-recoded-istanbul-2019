@@ -16,17 +16,17 @@ class Form extends Component {
     ...DEFAULT_STATE
   }
 
-  handleSubmit() {
+  handleSubmit = (event) =>{
     event.preventDefault()
     document.getElementById("order-form").reset()
     this.props.addOrder(this.state)
-
     this.setState({
       ...DEFAULT_STATE
     })
+    console.log(this.state)
   }
 
-  handleChange() {
+  handleChange = (event) => {
     const itemType = event.target.name
     const item = event.target.value
 
@@ -69,7 +69,7 @@ class Form extends Component {
 
           <br />
 
-          <button className="ui blue big button" type="submit">Submit</button>
+          <button onSubmit ={event => this.handleSubmit(event)} className="ui blue big button" type="submit">Submit</button>
         </form>
       </div>
     )
