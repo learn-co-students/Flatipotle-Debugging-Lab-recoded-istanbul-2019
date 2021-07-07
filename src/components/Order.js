@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Side from './Side'
 
 class Order extends Component {
   state = {
@@ -6,7 +7,9 @@ class Order extends Component {
   }
 
   handleClick = () => {
-    this.state.isClicked = !this.state.isClicked
+    this.setState({
+      isClicked: true
+    }) 
   }
 
   render() {
@@ -28,7 +31,7 @@ class Order extends Component {
         </div>
         <div className="extra content">
           { this.props.sides.length > 0 ?
-              <button className="ui button small" onClick={ this.handleClick }>
+              <button className="ui button small" onClick={this.handleClick}>
                 View Sides
               </button>
             :
