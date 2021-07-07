@@ -4,6 +4,7 @@ import FillingForm from './FillingForm'
 import ToppingForm from './ToppingForm'
 import SideForm from './SideForm'
 
+
 const DEFAULT_STATE = {
   protein: [],
   fillings: [],
@@ -16,7 +17,7 @@ class Form extends Component {
     ...DEFAULT_STATE
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
     event.preventDefault()
     document.getElementById("order-form").reset()
     this.props.addOrder(this.state)
@@ -26,7 +27,7 @@ class Form extends Component {
     })
   }
 
-  handleChange() {
+  handleChange(event) {
     const itemType = event.target.name
     const item = event.target.value
 
